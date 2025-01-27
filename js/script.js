@@ -1,21 +1,33 @@
 document.addEventListener("DOMContentLoaded", () => {
   console.log("페이지 로드 완료!");
 
-  // 현재 페이지 URL에 따라 활성화된 네비게이션 항목 설정
-  const currentPage = window.location.pathname.split("/").pop(); // 현재 페이지 파일 이름 가져오기
-  const navLinks = document.querySelectorAll("nav ul li a");
+  // 햄버거 메뉴 토글
+  const menuToggle = document.getElementById("menu-toggle");
+  const navLinks = document.getElementById("nav-links");
 
-  navLinks.forEach(link => {
-    if (link.getAttribute("href") === currentPage) {
+  if (menuToggle) {
+    menuToggle.addEventListener("click", () => {
+      navLinks.classList.toggle("active");
+    });
+  }
+
+  // 현재 페이지 URL에 따라 활성화된 네비게이션 항목 설정
+  const currentPath = window.location.pathname; // 현재 경로 가져오기
+  const currentPage = currentPath.split("/").pop(); // 현재 파일 이름
+  const navItems = document.querySelectorAll("nav ul li a");
+
+  navItems.forEach((link) => {
+    // 절대 경로 또는 파일 이름 비교
+    if (link.getAttribute("href") === currentPath || link.getAttribute("href") === currentPage) {
       link.classList.add("active"); // 활성화된 페이지에 클래스 추가
     }
   });
 
-  // 구글 드라이브 링크로 이동
-  const driveLinks = document.querySelectorAll(".drive-link");
-  driveLinks.forEach(button => {
+  // 깃허브 페이지 링크로 이동
+  const githubLinks = document.querySelectorAll(".github-link");
+  githubLinks.forEach((button) => {
     button.addEventListener("click", () => {
-      const url = button.getAttribute("data-url");
+      const url = "https://art-seed-git.github.io/artseed/"; // GitHub Pages URL
       window.open(url, "_blank"); // 새 탭에서 열기
     });
   });
@@ -38,7 +50,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // 외부 링크 클릭 시 경고창 표시
   const externalLinks = document.querySelectorAll(".external-link");
-  externalLinks.forEach(link => {
+  externalLinks.forEach((link) => {
     link.addEventListener("click", (event) => {
       if (!confirm("외부 사이트로 이동합니다. 계속하시겠습니까?")) {
         event.preventDefault(); // 사용자가 취소를 선택하면 이동하지 않음
