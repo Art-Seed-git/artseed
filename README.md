@@ -23,7 +23,7 @@
 ## 시작하기
 1. 저장소를 클론합니다.
    ```bash
-   git clone [저장소 URL]
+   git clone https://github.com/Art-Seed-git/artseed.git
 2. index.html을 열어 브라우저에서 확인하세요.
 기여하기
 기여를 원하신다면 contributing.md를 확인해주세요.
