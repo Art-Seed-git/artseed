@@ -1,6 +1,6 @@
 /*styles.css*/
 
-/*Remove all padding and margins*/
+/*remove all padding and margins*/
 *{
     margin: 0;
     padding: 0;
@@ -13,7 +13,7 @@ body{
     font-family: Arial, sans-serif;
 }
 
-/*Header*/
+/*header*/
 header{
     background: #35495e;/*Dark Blue-Gray*/
     color: #ffffff;/*White*/
@@ -37,40 +37,41 @@ header .logo span{
     font-weight: bold;
 }
 
-/*nav*/
-nav{
-    background: #41b883;/*Vibrant Greenish-Blue*/
-    padding: 0.5rem;
+/*.navbar*/
+.navbar{
+    align-item: center;
+    background-color: #333333;/*Dark Gray*/
+    display:flex;
+    justify-content: space-between;
+    pading: 10px 20px;
 }
-nav ul{
-    align-items: center;
-    display: flex;
-    height: 50px;
+.nav-links{
+    display: none;
     list-style: none;
-    justify-content: center;
 }
-nav ul li{
-    align-items: center;
-    display: flex;
-    list-style: none;
-    margin: 0 1rem;
+.nav-links li{
+    margin: 10px 0;
 }
-nav ul li a{
-    color: #ffffff;/*Whihe*/
-    font-weight: bold;
+.nav-links a{
+    color:white;/*White*/
+    font-size: 18px;
     text-decoration: none;
 }
-nav ul li a:hover{
-    background: #ffffff;/*Dark Gray*/
-    text-decoration: underline;
-    color: #1e90ff;/*Dodger Blue*/
-}
-nav ul li a.active {
-    background-color: #ffcc00;/*Bright Yellow*/
-    color: #ffffff;
+.nav-links a.active{
+    color:#ff9800;/*Orange*/
     font-weight: bold;
-    border-radius: 4px;
-    padding: 0.5rem 1rem;
+    border-bottom: 2px solide #ff9800;/*Orange*/
+}
+.menu-toggle{
+    cursor: pointer;
+    display:flex;
+    flex-dicoration: none;
+    font-size: 18px;
+}
+.menu-toggle .bar{
+    background-color: white;/*White*/
+    height: 3px;
+    width: 25px;
 }
 
 /*.main-link*/
@@ -79,6 +80,13 @@ nav ul li a.active {
     height: 50px;
     list-style: none;
 }
+
+/*.navbar activate*/
+.nav-links.active{
+    display: flex;
+    flex-direction: colmn;
+}
+
 /*video*/
 .thumbnail{
     aspect-ratio: 16/9;
@@ -101,3 +109,14 @@ footer{
     width: 100%;
     z-index: 100;
 }
+
+/*responsive design*/
+@media (min-width: 768px) {
+    .menu-toggle{
+        display:none;
+    }
+    .nav-links{
+        display:flex;
+        flex-directiov: row;
+        gap: 20px;
+    }
